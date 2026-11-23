@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Space Picture of the Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 NASA Astronomy Picture of the Day</h1>
+        
+        <div class="date-picker">
+            <label for="dateInput">Pick a date (like your birthday!): </label>
+            <input type="date" id="dateInput">
+            <button id="fetchBtn">Show Space Photo</button>
+        </div>
+
+        <div id="content">
+            <h2 id="title">Loading today's space magic...</h2>
+            <p id="date"></p>
+            <img id="apodImage" src="" alt="NASA Space Image">
+            <p id="explanation"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
