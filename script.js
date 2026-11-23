@@ -13,7 +13,7 @@ function getTodayDate() {
 }
 
 async function fetchAPOD(date = '') {
-    let url = https://api.nasa.gov/planetary/apod?api_key=${apiKey};
+    let url = [https://api.nasa.gov/planetary/apod?api_key=$](https://api.nasa.gov/planetary/apod?api_key=$){apiKey};
     if (date) {
         url += &date=${date};
     }
