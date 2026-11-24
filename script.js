@@ -1,4 +1,4 @@
-const apiKey = 'MDmk9KmHRFpFdwptMgD9bCjFkjtHp7CbTGMGFGNC'; 
+const apiKey = 'MDmk9KmHRFpFdwptMgD9bCjFkjtHp7CbTGMGFGNC';
 
 const fetchBtn = document.getElementById('fetchBtn');
 const dateInput = document.getElementById('dateInput');
@@ -26,7 +26,6 @@ async function fetchAPOD(date = '') {
             titleElem.innerText = data.title;
             dateElem.innerText = data.date;
             
-            // போட்டோவா அல்லது வீடியோவா எனச் சோதித்து அதற்கேற்ப காட்டுவது
             if (data.media_type === 'video') {
                 mediaContainer.innerHTML = <iframe width="100%" height="350" src="${data.url}" frameborder="0" allowfullscreen style="border-radius: 8px;"></iframe>;
             } else {
