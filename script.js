@@ -4,25 +4,20 @@ const fetchBtn = document.getElementById('fetchBtn');
 const dateInput = document.getElementById('dateInput');
 const titleElem = document.getElementById('title');
 const dateElem = document.getElementById('date');
-const apodImage = document.getElementById('apodImage');
+const mediaContainer = document.getElementById('mediaContainer');
 const explanationElem = document.getElementById('explanation');
 
-function getTodayDate() {
-    const today = new Date();
-    return today.toISOString().split('T')[0];
-}
-
 async function fetchAPOD(date = '') {
-    let url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+    let url = https://api.nasa.gov/planetary/apod?api_key=${apiKey};
     if (date) {
-        url += `&date=${date}`;
+        url += &date=${date};
     }
 
     try {
         titleElem.innerText = "Loading space magic... 🌌";
         dateElem.innerText = "";
         explanationElem.innerText = "";
-        apodImage.src = "";
+        mediaContainer.innerHTML = "";
 
         const response = await fetch(url);
         const data = await response.json();
@@ -30,7 +25,14 @@ async function fetchAPOD(date = '') {
         if (response.ok) {
             titleElem.innerText = data.title;
             dateElem.innerText = data.date;
-            apodImage.src = data.url;
+            
+            // போட்டோவா அல்லது வீடியோவா எனச் சோதித்து அதற்கேற்ப காட்டுவது
+            if (data.media_type === 'video') {
+                mediaContainer.innerHTML = <iframe width="100%" height="350" src="${data.url}" frameborder="0" allowfullscreen style="border-radius: 8px;"></iframe>;
+            } else {
+                mediaContainer.innerHTML = <img id="apodImage" src="${data.url}" alt="NASA Space Image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 15px 0;">;
+            }
+
             explanationElem.innerText = data.explanation;
         } else {
             titleElem.innerText = "Error loading data!";
