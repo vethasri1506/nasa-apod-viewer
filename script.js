@@ -27,10 +27,10 @@ async function fetchAPOD(date = '') {
             dateElem.innerText = data.date;
             
             if (data.media_type === 'video') {
-                mediaContainer.innerHTML = <iframe width="100%" height="350" src="${data.url}" frameborder="0" allowfullscreen></iframe>;
-            } else {
-                mediaContainer.innerHTML = <img id="apodImage" src="${data.url}" alt="NASA Space Image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 15px 0;">;
-
+    mediaContainer.innerHTML = '<iframe width="100%" height="350" src="' + data.url + '" frameborder="0" allowfullscreen></iframe>';
+} else {
+    mediaContainer.innerHTML = '<img id="apodImage" src="' + data.url + '" alt="NASA Space Image" style="max-width: 100%; height: auto; border-radius: 8px; margin: 15px 0;">';
+}
             explanationElem.innerText = data.explanation;
         } else {
             titleElem.innerText = "Error loading data!";
