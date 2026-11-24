@@ -8,9 +8,9 @@ const mediaContainer = document.getElementById('mediaContainer');
 const explanationElem = document.getElementById('explanation');
 
 async function fetchAPOD(date = '') {
-    let url = https://api.nasa.gov/planetary/apod?api_key=${apiKey};
+    let url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
     if (date) {
-        url += &date=${date};
+        url += `&date=${date}`;
     }
 
     try {
